@@ -55,14 +55,14 @@ memo while creating.
    before_action :authenticate_user!, except: [:index, :show]
    before_action :correct_user, only: [:edit, :update, :destroy]
 
-10.@friend = current_user.friends.build
+10. @friend = current_user.friends.build
 
 11. Initializing Git For Version Control
-    $ git config --global user.name "Your Name"
-    $ git config --global user.email "you@youraddress.com"
-    $ git config --global push.default matching
-    $ git config --global alias.co checkout
-    $ git init
+    git config --global user.name "Your Name"
+    git config --global user.email "you@youraddress.com"
+    git config --global push.default matching
+    git config --global alias.co checkout
+    git init
 
 12. add to local repository
    git add .
@@ -76,6 +76,14 @@ memo while creating.
    ssh-keygen.exe     (created public key which contain .pub)
    cat id_rsa.pub     (concatnate to generate ssh key)
    copy the long ssh key and paste in the github.com>setting>ssh and gpg key>New SSH key
+
+15. create new repository.
+    follow the instruction to push an existing repository.
+
+16. every time when you push updates
+    git add .
+    git commit -am 'message here'
+    git push
 
 problem faced:
 VS code could not log on to github. --> used git bash.
