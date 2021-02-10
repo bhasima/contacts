@@ -1,0 +1,43 @@
+<%= form_with(model: friend, local: true) do |form| %>
+  <% if friend.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(friend.errors.count, "error") %> prohibited this friend from being saved:</h2>
+
+      <ul>
+        <% friend.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field form-group">    
+      <%= form.text_field :first_name, class: "form-control", placeholder:"First Name" %>   
+  </div><br/>
+
+  <div class="field form-group">
+      <%= form.text_field :last_name, class: "form-control", placeholder:"Last Name" %>
+  </div><br/>
+  
+  <div class="field form-group">
+    <%= form.text_field :Email, class:"form-control", placeholder:"eg: abc@Name.com" %>
+  </div><br/>
+
+  <div class="field">
+    <%= form.text_field :phone, class:"form-control", placeholder:"Ph:000 111 222" %>
+  </div><br/>
+
+  <div class="field form-group">
+    <% form.label :facebook %>
+    <%= form.text_field :facebook, class:"form-control", placeholder:"Facebook username" %>
+  </div><br/>
+
+  <div class="field form-group">
+    <%= form.number_field :user_id, id: :friend_user_id, class:"form-control", value: current_user.id, type: :hidden %>
+  </div></br>
+
+  <div class="actions">
+    <%= form.submit class:"btn btn-secondary" %> 
+    <%= link_to 'Delete', @friend, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
+  </div></br>
+<% end %>
